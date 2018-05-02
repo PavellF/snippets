@@ -1,0 +1,550 @@
+@font-face {
+  font-family: 'Roboto', sans-serif;
+  src: url('../resources/font/robotom.ttf');
+}
+
+body {
+	font-family: 'Roboto', sans-serif !important;
+}
+
+ .header{
+	height:121px;
+}
+
+ .showHide:hover {
+	 cursor: -moz-grab;
+    cursor: -webkit-grab;
+	cursor: grab, auto;
+}
+
+#label{
+	font-size:59px;
+	padding:15px;
+	cursor: default;
+}
+
+#alert{
+	color:red;
+	margin-left:10px;
+}
+
+#contact{
+	font-size: 16px;
+	padding-left:16px;
+}
+
+.col-md-10 p{
+	font-size:20px;
+	cursor: default;
+}
+
+.col-md-10 span{
+	font-size:18px;
+}
+
+ .col-md-10 label{
+	font-size: 20px;
+}
+
+.col-md-10 a {
+	text-decoration: none;
+    font-size:16px;
+}
+
+.col-md-10 input{
+	border-radius: 3px;
+}
+
+.col-md-10 select{
+	border-radius: 3px;
+}
+
+.col-md-10 textarea {
+	width:100%;
+	height:100px;
+	font-size: 55px;
+	text-align:right;
+	background-color: transparent;
+	color: black;
+	border: 0px;
+}
+
+.col-md-10 button {
+	width:9.6%;
+	height:44px;
+	font-size: 16px;
+	margin-top:15px;
+	margin-bottom: 0px;
+    margin-right: 0px;
+    margin-left: 7px;
+	border: none;
+    text-decoration: none;
+    border-radius: 3px;
+}
+
+ .col-md-10 button:hover {
+	cursor: pointer; 
+  	text-decoration: none;
+}
+
+.topbuttons button {
+	width:11%;
+	height:40px;
+	font-size: 16px;
+	margin-top:15px;
+	margin-bottom: 0px;
+    margin-right: 0px;
+    margin-left: 7px;
+    text-decoration: none;
+}
+
+.topbuttons button:hover {
+	cursor: pointer; 
+  	text-decoration: none;
+}
+
+.col-md-10 #action{
+	width:9.5%;
+	height:44px;
+	font-size: 16px;
+	margin-top:15px;
+	margin-bottom: 0px;
+    margin-right: 0px;
+    margin-left: 7px;
+}
+
+.col-md-10 a:hover {
+	text-decoration: none;
+    cursor: pointer; 
+  	font-size:16px;
+}
+
+#alertBox{
+	width:75%;
+	height:44px;
+	font-size: 18px;
+	color: red;
+	background-color: transparent;
+	border:0px;
+}
+
+#radOrDeg{
+	width:20%;
+	height:44px;
+	font-size: 16px;
+	margin-bottom: 0px;
+    margin-right: 0px;
+    margin-left: 7px;
+	border: none;
+    text-decoration: none;
+}
+
+.swithAndTextField{margin-top:12px;}
+
+ .col-md-4 label{
+	font-size: 20px;
+}
+
+.col-md-4 select{
+	width:90%;
+	height:35px;
+}
+
+.col-md-4 input{
+	width:90%;
+	height:35px;
+	font-size: 20px;
+}
+
+.col-md-4 button{
+	margin-left:0px;
+	width:90%;
+	height:44px;
+	font-size: 20px;
+}
+
+.col-md-4 button:hover{
+	cursor: pointer; 
+  	text-decoration: none;
+}
+
+.footer button {
+	height: 64px;
+	width: 64px;
+	margin-left: 0px;
+	font-size:16px;
+}
+
+.footer button:hover {
+	text-decoration: none;
+    cursor: pointer; 
+  	font-size:16px;
+}
+
+
+.hearts {
+	background: 
+		radial-gradient(circle closest-side at 60% 43%, #b03 26%, rgba(187,0,51,0) 27%),
+		radial-gradient(circle closest-side at 40% 43%, #b03 26%, rgba(187,0,51,0) 27%),
+		radial-gradient(circle closest-side at 40% 22%, #d35 45%, rgba(221,51,85,0) 46%),
+		radial-gradient(circle closest-side at 60% 22%, #d35 45%, rgba(221,51,85,0) 46%),
+		radial-gradient(circle closest-side at 50% 35%, #d35 30%, rgba(221,51,85,0) 31%),
+
+		radial-gradient(circle closest-side at 60% 43%, #b03 26%, rgba(187,0,51,0) 27%) 50px 50px,
+		radial-gradient(circle closest-side at 40% 43%, #b03 26%, rgba(187,0,51,0) 27%) 50px 50px,
+		radial-gradient(circle closest-side at 40% 22%, #d35 45%, rgba(221,51,85,0) 46%) 50px 50px,
+		radial-gradient(circle closest-side at 60% 22%, #d35 45%, rgba(221,51,85,0) 46%) 50px 50px,
+		radial-gradient(circle closest-side at 50% 35%, #d35 30%, rgba(221,51,85,0) 31%) 50px 50px;
+	background-color:#b03  !important;
+	background-size:100px 100px;
+}
+
+.hearts .col-md-10 {
+	background-color:lightcoral;
+    opacity: 0.8;
+}
+
+.hearts .col-md-10 h1{
+	color: black;
+}
+
+.hearts .col-md-10 h2{
+	color: black;
+}
+
+.hearts .col-md-10 p{
+	color: black;
+}
+
+.hearts .col-md-10 span{
+	color: black;
+}
+
+.hearts .col-md-10 label{
+	color:black;
+}
+
+.hearts .col-md-10 a {
+	color: white;
+}
+
+.hearts .col-md-10 input{
+	background-color: pink;
+}
+
+.hearts .col-md-10 button {
+	background-color: pink;
+    color: black;
+}
+
+.hearts .col-md-10 button:hover {
+	color: white;
+	background-color: transparent;
+  	transition: color 0.33s,background-color 0.33s;
+ }
+
+.hearts .topbuttons button:hover {
+	color: white;
+  	transition: color 1s, background-color 1s;
+  	background-color: transparent;
+}
+
+.hearts .col-md-10 a:hover {
+	color: transparent;
+  	transition: color 1s;
+}
+
+.hearts #radOrDeg{
+	background-color: pink;
+    color: black;
+}
+
+.hearts .col-md-4 label{
+	color:black;
+}
+
+.hearts .col-md-4 select{
+	color:black;
+	background-color:pink;
+}
+
+.hearts .col-md-4 button:hover{
+	color: white;
+  	transition: color 1s;
+  	background-color: transparent;
+}
+
+.hearts .footer button {
+	background: transparent;
+	color:black;
+}
+
+.hearts .footer button:hover {
+	color: transparent;
+  	transition: color 1s;
+}
+
+.hubble {
+	background: url(../resources/images/heic1313b.jpg);
+    background-size: cover;
+}
+
+.hubble .col-md-10 {
+	background-color:black;
+    opacity: 0.8;
+}
+
+.hubble .col-md-10 h1{
+	color: white;
+ }
+
+.hubble .col-md-10 h2{
+	color: white;
+}
+
+.hubble .col-md-10 p{
+	color: white;
+}
+
+.hubble .col-md-10 span{
+	color: white;
+}
+
+.hubble .col-md-10 label{
+	color:white;
+}
+
+.hubble .col-md-10 a {
+	color: white;
+}
+
+.hubble .col-md-10 textarea {
+	background-color: transparent;
+	color: white;
+}
+
+.hubble .col-md-10 button {
+	background-color: white;
+    color: black;
+}
+
+.hubble .col-md-10 button:hover {
+	color: white;
+	background-color: transparent;
+  	transition: color 1s, background-color 1s;
+}
+
+.hubble .topbuttons button:hover {
+	color: white;
+  	background-color: transparent;
+  	transition: color 1s, background-color 1s;
+}
+
+.hubble .col-md-10 a:hover {
+	color: transparent;
+  	transition: color 1s;
+}
+
+
+.hubble #radOrDeg{
+	background-color: white;
+    color: black;
+}
+
+.hubble .col-md-4 label{
+	color:white;
+}
+
+.hubble .col-md-4 button:hover{
+	background-color: transparent;
+	color: white;
+  	transition: color 1s, background-color 1s;
+}
+
+.hubble .footer button {
+	background: transparent;
+	color:white;
+}
+
+.hubble .footer button:hover {
+	background: transparent;
+	color: transparent;
+  	transition: color 1s;
+}
+
+.cubes {
+	background-color:#556 !important;
+	background-image: linear-gradient(30deg, #445 12%, transparent 12.5%, transparent 87%, #445 87.5%, #445),
+	linear-gradient(150deg, #445 12%, transparent 12.5%, transparent 87%, #445 87.5%, #445),
+	linear-gradient(30deg, #445 12%, transparent 12.5%, transparent 87%, #445 87.5%, #445),
+	linear-gradient(150deg, #445 12%, transparent 12.5%, transparent 87%, #445 87.5%, #445),
+	linear-gradient(60deg, #99a 25%, transparent 25.5%, transparent 75%, #99a 75%, #99a), 
+	linear-gradient(60deg, #99a 25%, transparent 25.5%, transparent 75%, #99a 75%, #99a);
+	background-size:80px 140px;
+	background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
+}
+
+.cubes .col-md-10 {
+	background-color:black;
+    opacity: 0.8;
+}
+
+.cubes .col-md-10 h1{
+	color: white;
+}
+
+.cubes .col-md-10 h2{
+	color: white;
+}
+
+.cubes .col-md-10 p{
+	color: white;
+}
+
+.cubes .col-md-10 span{
+	color: white;
+}
+
+.cubes .col-md-10 label{
+	color:white;
+}
+
+.cubes .col-md-10 a {
+	color: white;
+}
+
+.cubes .col-md-10 textarea {
+	background-color: transparent;
+	color: white;
+}
+
+.cubes .col-md-10 button {
+	background-color: white;
+    color: black;
+}
+
+.cubes .col-md-10 button:hover {
+	color: white;
+	background-color: transparent;
+  	transition: color 1s, background-color 1s;
+}
+
+.cubes .topbuttons button:hover {
+	color: white;
+  	transition: color 1s, background-color 1s;
+  	background-color: transparent;
+}
+
+.cubes .col-md-10 a:hover {
+	color: transparent;
+  	transition: color 1s, background-color 1s;
+}
+
+.cubes #radOrDeg{
+	background-color: white;
+    color: black;
+}
+
+.cubes .col-md-4 label{
+	color:white;
+}
+
+.cubes .col-md-4 button:hover{
+	color: white;
+  	transition: color 1s, background-color 1s;
+  	background-color: transparent;
+}
+
+.cubes .footer button {
+	background: transparent;
+	color:white;
+}
+
+.cubes .footer button:hover {
+	background: transparent;
+	color: transparent;
+  	transition: color 1s, background-color 1s;
+}
+
+.boring {
+	background:#f1e9e2 !important;
+}
+
+.boring .col-md-10 {
+	background-color:#FFFFFF;
+    opacity: 0.8;
+}
+
+.boring .col-md-10 h1{
+	color: #1d1f21;
+}
+
+.boring .col-md-10 h2{
+	color: #1d1f21;
+}
+
+.boring .col-md-10 p{
+	color: #1d1f21;
+}
+
+.boring .col-md-10 span{
+	color: #1d1f21;
+}
+
+.boring .col-md-10 label{
+	color:#1d1f21;
+}
+
+.boring .col-md-10 textarea {
+	background-color: transparent;
+	color: #1d1f21;
+}
+
+.boring .col-md-10 button {
+	background-color: #1d1f21;
+    color: #f1e9e2;
+}
+
+.boring .col-md-10 button:hover {
+	background-color: transparent;
+    color: #1d1f21;
+  	transition: color 0.3s, background-color 0.3s;
+}
+
+.boring .topbuttons button:hover {
+	background-color: transparent;
+	color: black;
+  	transition: color 0.3s, background-color 0.3s;
+}
+
+.boring .col-md-10 a:hover {
+	color: transparent;
+  	transition: color 1s, background-color 1s;
+}
+
+.boring #radOrDeg{
+	background-color:#1d1f21 !important;
+    color: #f1e9e2 !important;
+}
+
+.boring .col-md-4 label{
+	color:#1d1f21;
+}
+
+.boring .col-md-4 button:hover{
+	color: #1d1f21;
+  	transition: color 1s, background-color 1s;
+  	background-color: transparent;
+}
+
+.boring .footer button {
+	background: transparent;
+	color:#1d1f21;
+}
+
+.boring .footer button:hover {
+	background: transparent;
+	color: transparent;
+  	transition: color 1s, background-color 1s;
+}
+

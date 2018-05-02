@@ -1,0 +1,8 @@
+Note:
+1. Constant value should be assigned with . (dot) instead ,
+For example: 9.8 NOT 9,8.
+If You need very large (10000000) or very small (0.0000005) constant use this:
+E7 - for 10000000, 5E-7 for 0.0000005.
+Then press Save button.
+2. To change style You need restart application.
+Autor: https://github.com/uphawu

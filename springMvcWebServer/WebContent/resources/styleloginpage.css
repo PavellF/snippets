@@ -1,0 +1,89 @@
+body {
+	background: 
+radial-gradient(circle closest-side at 60% 43%, #b03 26%, rgba(187,0,51,0) 27%),
+radial-gradient(circle closest-side at 40% 43%, #b03 26%, rgba(187,0,51,0) 27%),
+radial-gradient(circle closest-side at 40% 22%, #d35 45%, rgba(221,51,85,0) 46%),
+radial-gradient(circle closest-side at 60% 22%, #d35 45%, rgba(221,51,85,0) 46%),
+radial-gradient(circle closest-side at 50% 35%, #d35 30%, rgba(221,51,85,0) 31%),
+
+radial-gradient(circle closest-side at 60% 43%, #b03 26%, rgba(187,0,51,0) 27%) 50px 50px,
+radial-gradient(circle closest-side at 40% 43%, #b03 26%, rgba(187,0,51,0) 27%) 50px 50px,
+radial-gradient(circle closest-side at 40% 22%, #d35 45%, rgba(221,51,85,0) 46%) 50px 50px,
+radial-gradient(circle closest-side at 60% 22%, #d35 45%, rgba(221,51,85,0) 46%) 50px 50px,
+radial-gradient(circle closest-side at 50% 35%, #d35 30%, rgba(221,51,85,0) 31%) 50px 50px;
+background-color:#b03  !important;
+background-size:100px 100px;
+}
+
+#content {
+	height:100%;
+	padding-left: 50px;
+	padding-right: 50px;
+}
+
+.loginform , .forgotPasswordForm {
+	width:33%;
+	
+	margin-top: 60px;
+	position: relative;
+	float: left;
+	background-color: white;
+	opacity: 0.8;
+	border: 3px solid transparent;
+	border-radius: 10px;
+}
+
+.forminner {
+	margin-left: 12px;
+	margin-right: 12px;
+}
+
+.lastinner {
+	margin-left: 12px;
+	margin-right: 12px;
+}
+
+.whoislast {
+	width:33%;
+	margin-top: 60px;
+	background-color: white;
+	opacity: 0.8;
+	border: 3px solid transparent;
+	border-radius: 10px;
+	position: relative;
+	float: right;
+}
+
+label {
+	float: left;
+	font-size: 18px;
+	margin-bottom: 6px;
+	margin-top: 6px;
+	width:100%;
+}
+
+input {
+	float: left;
+	border-radius: 4px;
+	border: 1px solid #34302d;;
+	width: 100%;
+	height: 36px;
+	font-size: 25px;
+}
+
+#loginbtn{
+	height: 49px;
+	margin-top:30px
+}
+
+#loginbtn:hover , #resetButton:hover{
+	border-color: #34302d;
+	box-shadow: 0 1px 3px #34302d;
+	cursor: url(http://cur.cursors-4u.net/symbols/sym-1/sym46.cur), auto;
+}
+
+#error {
+	color:red;
+}
+
+

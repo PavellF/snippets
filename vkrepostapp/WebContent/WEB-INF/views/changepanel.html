@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Изменить</title>
+<link rel="stylesheet" type="text/css" href="${pathToStyle}" />
+    <link rel="stylesheet" type="text/css" href="/bootstrap-dist/css/bootstrap.css" />
+    <script src="/jquery"></script>
+    <script type="text/javascript">
+    	
+    	function check(){
+            var hasErrors = false;
+
+            var access_token = document.forms["postForm"]["access_token"].value;
+            if (access_token == null || access_token == "" || access_token.match(" ")) {
+                hasErrors = true;
+                $(".access_token").append("<br/><span id='errormessage'>Это поле должно быть заполнено и не иметь пробелов.</span>");
+            }
+            var group_id = document.forms["postForm"]["group_id"].value;
+            if(group_id == null || group_id == "" || group_id.match(" ")){
+                hasErrors = true;
+                $(".group_id").append("<br/><span id='errormessage'>Это поле должно быть заполнено и не иметь пробелов.</span>");
+            }
+            var user_id = document.forms["postForm"]["user_id"].value;
+            if(user_id == null || user_id == "" || user_id.match(" ")){
+                hasErrors = true;
+                $(".user_id").append("<br/><span id='errormessage'>Это поле должно быть заполнено и не иметь пробелов.</span>");
+            }
+            var delay = +document.forms["postForm"]["delay"].value;
+            if (delay == null || delay == Number.NaN || !Number.isInteger(delay) || delay <= 0) {
+                hasErrors = true;
+                $(".delay").append("<br/><span id='errormessage'>Это поле должно содержать целое число больше 0 и не иметь пробелов.</span>");
+            }
+            var countOfPosts = +document.forms["postForm"]["countOfPosts"].value;
+            if (countOfPosts == null || countOfPosts == Number.NaN || !Number.isInteger(countOfPosts) || countOfPosts <= 0) {
+                hasErrors = true;
+                $(".countOfPosts").append("<br/><span id='errormessage'>Это поле должно содержать целое число больше 0 и не иметь пробелов.</span>");
+            }
+            var globalDelay = +document.forms["postForm"]["globalDelay"].value;
+            var minGlobalDelay = countOfPosts*delay; 
+            if (globalDelay == null || globalDelay == Number.NaN || !Number.isInteger(globalDelay) || globalDelay <= 0) {
+                hasErrors = true;
+                $(".globalDelay").append("<br/><span id='errormessage'>Это поле должно содержать целое число больше 0 и не иметь пробелов.</span>");
+            }else if(globalDelay < minGlobalDelay){
+                hasErrors = true;
+                $(".globalDelay").append("<br/><span id='errormessage'>Слишком малое значение. Минимум "+minGlobalDelay+".</span>");
+            }
+            var groupsFrom = document.forms["postForm"]["groupsFrom"].value;
+            if (groupsFrom == null || groupsFrom == "" || !checkGroupsIds(groupsFrom)) {
+                hasErrors = true;
+                $(".groupsFrom").append("<br/><span id='errormessage'>Значения указаны неверно или не указаны вовсе.</span>");
+        	}
+            var filter =  document.getElementById("filter").checked;
+            
+            if(filter){
+            	document.getElementById("filter").value = "on";
+            }else {
+            	document.getElementById("filter").value = "off";
+            }
+        
+            if (hasErrors) return false;
+            
+         }
+
+            function checkGroupsIds(id){
+                var array =  id.split("@");
+                var correct = true;
+                for(var i = 0;i<array.length;i++){
+                	if(+array[i]>0) correct = false;
+                }
+                return correct;
+            }
+    	
+    </script>
+</head>
+<body>
+ 
+ 	
+	
+   <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    
+                </div>
+                <div class="col-md-8">
+                    <form action="/changeprefs?id=${id}" method=POST name="postForm" onsubmit="return check();">
+
+                        <h1>Изменить</h1>
+                        
+                        <h3 class="access_token"><a href="/help">access token</a></h3>
+                        <input type="text" name="access_token"  value='${access_token}'/>
+
+                        <h3 class="group_id">id группы для постинга</h3>
+                        <input type="text" name="group_id" value='${group_id}'/>
+
+                        <h3 class="user_id">id владельца группы</h3>
+                        <input type="text" name="user_id" value='${user_id}'/>
+
+                        <h3 class="delay">Задержка между постингом в миллисекундах</h3>
+                        <input type="text" name="delay" value='${delay}'/>
+
+                        <h3 class="countOfPosts">Количество постов за итерацию с каждой группы</h3>
+                        <input type="text" name="countOfPosts" value='${countOfPosts}'/>
+
+                        <h3 class="globalDelay">Задержка между итерациями</h3>
+                        <input type="text" name="globalDelay" value='${globalDelay}'/>
+
+                        <h3>Размер фото</h3>
+                        <select selected="1280" required name="photo_size">
+                            <option>1280</option>
+                            <option>807</option>
+                            <option>604</option>
+                            <option>130</option>
+                            <option>75</option>
+                        </select>
+
+                        <h3 class="filter">Использовать фильтр <input id="filter" name="filter" type="checkbox" id="filter"/></h3>
+
+                        <h3 class="savedPhotoDestination">Расположение для сохранённых фото<br />(оствить пустым, если не нужно)</h3>
+                        <input type="text" name="savedPhotoDestination" value='${savedPhotoDestination}'/>
+
+                        <h3 class="groupsFrom"><a href="/help">id групп источников</a></h3>
+                        <textarea name="groupsFrom">${groupsFrom}</textarea><br/>
+
+                        <input class="submit" type="submit" value="Готово."  id="button"/>
+                        
+                        </form>
+</div>
+                <div class="col-md-2">
+                    
+                </div>
+            </div>
+        </div>
+    
+    
+    
+    
+    <div class="container">
+    <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8" id="footer">
+                <a href="/" >Назад</a> 
+                <a href="/help">help</a>                    
+                </div>
+                <div class="col-md-2"></div>
+    </div>
+    </div>
+</body>
+</html>

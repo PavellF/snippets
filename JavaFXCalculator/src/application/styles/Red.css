@@ -1,0 +1,138 @@
+.root{
+	-fx-background-color: #F1F1F1;
+	-fx-font-family: "PT Sans";
+}
+
+.button{
+	-fx-text-fill:#767a82;
+	-fx-background-color: #FFFFFF;
+}
+
+.button:hover{
+	-fx-background-color: #444444;
+	-fx-text-fill:#FFFFFF;
+}
+
+#topPane{
+	-fx-background-color: #cc181e;
+	-fx-border-width: 0px;
+	}
+
+.panelLinks{
+	-fx-background-color: transparent;
+	-fx-text-fill: #FFFFFF;
+	-fx-border-width: 0px;
+	-fx-font-size: 16.0px;
+	-fx-underline: false;
+	
+}
+
+.panelLinks:hover{
+	-fx-border-width: 0px;
+	-fx-text-fill: #F1F1F1;
+	-fx-underline: false;
+}
+
+.choice-box .label{
+	-fx-text-fill:#767a82;
+}
+
+.choice-box{
+	-fx-background-color: #FFFFFF;
+	-fx-border-width: 0px;
+}
+
+.text-field{
+	-fx-border-width: 0px;
+	-fx-background-color: #FFFFFF;
+	-fx-text-fill:#767a82;
+}
+
+.text-field:focused{}
+
+#infoField{
+	-fx-border-width: 0px;
+	-fx-font-size: 10px;
+	-fx-background-color: transparent;
+	-fx-text-fill:#767a82;
+}
+
+.toggle-button{
+	-fx-text-fill:#767a82;
+	-fx-border-width: 0px;
+	-fx-background-color: #FFFFFF;
+}
+
+.toggle-button:hover{
+	-fx-border-width: 0px;
+}
+
+.toggle-button:selected{
+	-fx-background-color: #cc181e;
+	-fx-text-fill:#FFFFFF;
+}
+
+#calcDisplay{
+	-fx-border-width: 0px;
+	-fx-background-color: transparent;
+	-fx-text-fill:#767a82;
+}
+
+.text-area{
+	-fx-background-color: transparent;
+	-fx-text-fill:#767a82;
+	
+}
+
+.text-area .content{
+	-fx-background-color: transparent;
+	-fx-border-width: 0px;
+	-fx-background-radius: 0;
+}
+
+.text-area:focused{
+	-fx-border-width: 0px;
+	-fx-background-color: transparent;
+	
+}
+
+#overallTime{
+	-fx-border-width: 0px;
+	-fx-background-color: transparent;
+}
+
+.label{
+	-fx-text-fill:#767a82;
+}
+
+.check-box{
+	-fx-text-fill:#767a82;
+}
+
+.check-box *.box{
+	
+	-fx-background-color: #cc181e;
+	-fx-border-width: 0px;
+}
+
+.list-cell {
+	-fx-background-color: transparent;
+	-fx-border-color: transparent;
+	-fx-text-fill:#767a82;
+}
+
+.list-view{
+	-fx-border-width: 0px;
+	-fx-background-color: transparent;
+	
+}
+
+.list-cell:filled:hover{
+	-fx-background-color: #cc181e;
+	-fx-text-fill: #FFFFFF;
+}
+
+.list-cell:selected{
+	-fx-text-fill: #FFFFFF;
+	-fx-background-color: #cc181e;
+}

@@ -1,0 +1,690 @@
+body{
+	background-color:rgb(242, 242, 242);
+	
+}
+
+a{
+	color:black;
+}
+
+.profilePage{
+	margin-left: 10%;
+    width: 80%;
+   	background-color: rgb(255, 255, 255);
+}
+
+.profileBlock {
+	width: 100%;
+	height: 750px;
+	padding-top: 95px;
+}
+
+.pic {
+	background-color:white;
+	float:left;
+	width: 246px;
+	/*height:66%;*/
+}
+
+#profilePic {
+	margin-left: 16px;
+    width: 220px;
+    height: 220px;
+    margin-top: 28px;
+    border-radius: 5px;
+}
+
+#picMenu{
+	    margin-left: 16px;
+    width: 220px;
+    padding-left: 0px;
+    list-style: none;
+}
+
+#picMenu li {
+	border-radius: 5px;
+	padding-top: 15px;
+    text-align: center;
+    padding-bottom: 15px;
+        background: crimson;
+        margin-bottom: 7px;
+        -webkit-transition: all 1s;
+            font-size: 16px;
+    color: white;
+    text-decoration: none;
+}
+
+#picMenu li:hover {
+	border-radius: 5px;
+	padding-top: 15px;
+    text-align: center;
+    padding-bottom: 15px;
+    margin-bottom: 7px;
+    background: royalblue;
+    cursor: url(http://cur.cursors-4u.net/symbols/sym-1/sym46.cur), auto;
+    
+}
+
+
+.info{
+	/*height: 66%;*/
+    width: 33.33%;
+	background-color:white;
+	float:left;
+}
+
+.info h1 {
+	margin-left: 5%;
+}
+
+.info ul {
+	padding: 0px;
+  /* height: 77%;*/
+    list-style: none;
+    margin-left: 5%;
+}
+
+.info ul li {
+	    margin-bottom: 16px;
+    font-size: 18px;
+}
+
+.info ul li textarea{
+	     border-radius: 5px;
+    width: 90%;
+    resize: none;
+    height: 70px;
+}
+
+#quickSendMessageArea{
+	margin-bottom:0px;
+}
+
+#quickSendMessageButton{
+	width: 69px;
+    color: white;
+    font-size: 13px;
+    padding: 6px;
+    background-color: crimson;
+    border-radius: 5px;
+    -webkit-transition: all 1s;
+}
+
+#quickSendMessageButton:hover{
+	background-color: royalblue;
+	cursor: url(http://cur.cursors-4u.net/symbols/sym-1/sym46.cur), auto;
+}
+
+.aboutyslf {
+	width: 66.66%;
+    height: 34%;
+    background-color: white;
+    display: inline-flex;
+}
+ #aboutyList{
+ 
+ margin: 0px;
+    width: 100%;
+    list-style: none;
+    padding: 0px;}
+
+#about{
+	margin-left: 16px;
+    width: 90%;
+    resize: none;
+    height: 200px;
+    border-radius: 5px;
+    border: 1px solid #A9A9A9;
+    font-size: 16px;
+    padding: 6px;
+}
+
+#aboutLabel{
+	height: 33px;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    margin-left: 16px;
+}
+
+.friends {
+	float: right;
+    background-color: white;
+    width: 33.33%;
+    min-height: 700px;
+}
+
+.switch{
+	width: 100%;
+    height: 66px;
+        border-bottom: 1px solid crimson;
+    border-top: 1px solid crimson;
+}
+
+#swithList {
+	margin-bottom: 0px;
+    margin-top: 0px;
+    margin-left: 5%;
+    padding: 0px;
+    list-style: none;
+    display: inline-flex;
+        height: 100%;
+}
+
+#swithList li {
+	margin-left: 15px;
+    background-color: transparent;
+    color: black;
+    padding-top:16px;
+    text-align: center;
+    font-size: 23px;
+}
+
+#swithList li label:hover {
+	
+    cursor: url(http://cur.cursors-4u.net/symbols/sym-1/sym46.cur), auto;
+}
+
+.commentBlock{
+	width: 100%;
+    padding-bottom: 30px;
+    background-color: white;
+}
+
+#sendMessage  {
+	width: 90%;
+    padding: 0px;
+    display: inline-flex;
+    list-style: none;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+#sendMessageArea {
+	width: 500px;
+    height: 75px;
+    border-radius: 5px;
+    resize: none;
+    font-size: 18px;
+    padding-left: 9px;
+    padding-right: 9px;
+}
+
+#sendMessageButton, .messageRequest button, .qsBody li a {
+	    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    color: white;
+    background-color: crimson;
+    border-radius: 5px;
+    display: inline-flex;
+    transition: all 1s;
+    margin-left: 25px;
+    font: inherit;
+    border: none;
+}
+
+#sendMessageButton:hover, .messageRequest button:hover, .qsBody li a:hover {
+	background-color: royalblue;
+    cursor: url(http://cur.cursors-4u.net/symbols/sym-1/sym46.cur), auto;
+}
+
+#sendMessage img {
+	height: 75px;
+    margin-right: 20px;
+    width: 75px;
+    border-radius: 5px;
+}
+
+.messageSorting ul {
+	list-style: none;
+    width: 90%;
+    padding: 0px;
+    display: flex;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.messageSorting ul li a{
+	padding-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    color: white;
+    background-color: crimson;
+    border-radius: 5px;
+    margin-right: 25px;
+}
+
+.messageSorting ul li a:hover{
+	cursor: url(http://cur.cursors-4u.net/symbols/sym-1/sym46.cur), auto;
+}
+
+.messageRequest{
+	    text-align: center;
+}
+
+.event {
+	min-height: 50px;
+	margin-bottom: 5px;
+    background: white;
+    border-radius: 5px;
+}
+
+.event a{
+	text-decoration: none;
+    font-size: 13px;
+}
+
+.event ul{
+	    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    margin-right: 12px;
+}
+
+.friendDecide{
+    margin-top: 12px;
+}
+
+.friendDecide a {
+	margin-right: 9px;
+	padding-left: 4px;
+    padding-bottom: 6px;
+    padding-top: 6px;
+    padding-right: 4px;
+    border-radius: 5px;
+    margin-top: 10px;
+    text-decoration: none;
+}
+	
+.accept {
+	background-color: lawngreen;
+	color: black;
+	 cursor: url(http://cur.cursors-4u.net/symbols/sym-1/sym46.cur), auto;
+}
+
+.decline {
+	background-color: crimson;
+	color: white;
+	 cursor: url(http://cur.cursors-4u.net/symbols/sym-1/sym46.cur), auto;
+}
+
+.notifNfriendsList {
+	padding: 0px;
+    list-style: none;
+    border-bottom: 1px solid crimson;
+}
+
+.friend{
+	display: flex;
+    margin-bottom: 9px;
+}
+
+.friend img{
+	max-width: 60px;
+    min-width: 60px;
+    height: 60px;
+    border-radius:5px;
+}
+
+.friend ul{
+	padding: 0px;
+    list-style: none;
+    margin-left: 10px;
+    margin-right: 10px;
+    max-width: 200px;
+}
+
+.friend ul li a{
+	font-size: 13px;
+	color: black;
+}
+
+.friendName{
+	font-size: 16px;
+	text-decoration: none;
+    color: black;
+	
+}
+
+.messagesList {
+	list-style: none;
+    padding: 0px;
+    margin-left: 5%;
+    margin-top: 0px;
+    padding-top: 25px; 
+}
+
+.message{
+	padding-top: 9px;
+    padding-bottom: 9px;
+}
+
+.message .messageMenu li{
+	 margin-right: 30px;
+}
+
+.message img{
+	height: 75px;
+    width: 75px;
+	float: left;
+	border-radius: 5px;
+}
+
+.message ul{
+	list-style: none;
+    display: inline-flex;
+    margin-top: 0px;
+    margin-bottom: 4px;
+    padding: 0px;
+    width: 100%;
+}
+
+.message .usernameField{
+	font-size: 16px;
+    text-decoration: none;
+}
+
+.message .reply {
+		text-decoration: underline;
+	   cursor: url(http://cur.cursors-4u.net/symbols/sym-1/sym46.cur), auto;
+}
+
+.message .correct {
+	cursor: url(http://cur.cursors-4u.net/symbols/sym-1/sym46.cur), auto;
+	   color:royalblue;
+	   margin-left:9px;
+}
+
+.message .editable{
+	border-radius: 5px;
+    border: 1px solid #A9A9A9;
+    font-size: 16px;
+    margin-left: 16px;
+    padding: 6px;
+    width: 500px;
+}
+
+#messagesCounter{
+	padding-left: 6px;
+    background-color: crimson;
+    padding-right: 6px;
+    border-radius: 5px;
+     margin-left: 5px;
+    margin-right: 5px;
+}
+
+#newMessagesCounter{
+	padding-left: 6px;
+    background-color: lawngreen;
+    padding-right: 6px;
+    border-radius: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    cursor: url(http://cur.cursors-4u.net/symbols/sym-1/sym46.cur), auto;
+}
+
+.message .delete {
+	   cursor: url(http://cur.cursors-4u.net/symbols/sym-1/sym46.cur), auto;
+	   color:red;
+	   margin-left:9px;
+}
+
+.message .up{
+	color:lawngreen;
+	 cursor: url(http://cur.cursors-4u.net/symbols/sym-1/sym46.cur), auto;
+	 margin-right: 9px;
+}
+
+.message .ratingVal{
+	padding-left: 6px;
+    background-color: crimson;
+    padding-right: 6px;
+    border-radius: 5px;
+    text-decoration: none;
+	cursor: url(http://cur.cursors-4u.net/symbols/sym-1/sym46.cur), auto;
+}
+
+.message .down{
+	color: crimson;
+	cursor: url(http://cur.cursors-4u.net/symbols/sym-1/sym46.cur), auto;
+	margin-left: 9px;
+}
+
+.message .userMsg{
+	    margin-left: 16px;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 6px;
+    width: 500px;
+}
+
+.qsBody{
+	padding: 0px;
+    display: inline-flex;
+    list-style: none;
+    margin-top:9px;
+    margin-bottom:9px;
+}
+
+.qsBody li img{
+	    margin-right: 20px;
+    border-radius: 5px;
+        height: 50px;
+    width: 50px;
+}
+
+.qsBody li textarea{
+	    width: 500px;
+    border-radius: 5px;
+    padding-left: 9px;
+    padding-right: 9px;
+        height: 50px;
+    font-size: 15px;
+}
+
+.count {
+	padding-left: 6px;
+    border-radius: 5px;
+    background-color: crimson;
+    padding-right: 6px;
+}
+
+.ffl_menu ul, .fel_menu ul{
+	float: right;
+}
+
+#ffl_backButton, #fel_backButton{
+	padding-left: 40px;
+    font-size: 22px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-right: 40px;
+    text-decoration: none;
+    border: 0px;
+    background-color:crimson;
+	 color:aliceblue;
+	  transition: all 0.5s;
+}
+
+.fullFriendList button:hover, .fullEventList button:hover{
+	cursor:pointer;
+}
+
+#ffl_backButton:hover, #fel_backButton:hover{
+	background-color:royalblue;
+}
+
+
+
+.fullFriendList, .fullEventList{
+	margin-left: 10%;
+    width: 80%;
+    min-height: 100%;
+    background-color: rgb(255, 255, 255);
+    padding-top: 81px;
+}
+
+#ffl_Menu, #fel_Menu{
+	padding: 0px;
+	margin: 0px;
+     list-style: none;
+    display: flex;
+}
+
+.sortButtons, #fel_sortButton{
+	background-color: crimson;
+    border: 0px;
+    border-radius: 5px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 18px;
+    color: aliceblue;
+    margin-top: 22px;
+    margin-right: 12px;
+}
+
+#ffl_list, #fel_list{
+	padding: 0px;
+	margin: 0px;
+    list-style: none;
+}
+
+.ffl_list_entry, .fel_list_entry{
+	 border-top: 1px solid crimson;
+}
+
+.ffl_friend{
+	padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.ffl_friend a{
+	cursor:pointer;
+}
+
+.ffl_friend ul{
+	list-style: none;
+    display: flex;
+}
+
+.ffl_friend ul li{
+	    margin-left: 30px;
+}
+
+.ffl_friend ul button{
+	    padding-left: 30px;
+    padding-right: 30px;
+    background-color: crimson;
+    border-radius: 5px;
+    padding-top: 10px;
+    font-size: 18px;
+    padding-bottom: 10px;
+    transition: all .5s;
+    border: 0px;
+    color:aliceblue;
+}
+
+.ffl_friend ul button:hover{
+	cursor:pointer;
+	background-color: royalblue;
+}
+
+.ffl_friend ul li img{
+	height: 100;
+    width: 100px;
+    border-radius:5px;
+}
+
+.ffl_friend ul li ul{
+	  list-style: none;
+	  font-size: 18px;
+	  display: block;
+	  padding: 0px;
+}
+
+.ffl_friend ul li ul li{
+	margin-top: 8px;
+}
+
+.ffl_footer, .fel_footer{
+	    bottom: 0px;
+    display: block;
+    width: 100%;
+    height: 80px;
+    text-align: center;
+}
+
+.ffl_footer button, .fel_footer button{
+	background-color: crimson;
+    border: 0px;
+    border-radius: 5px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 18px;
+    color: aliceblue;
+    transition: all .5s;
+}
+
+.ffl_footer button:hover, .fel_footer button:hover{
+	color: black;
+	background-color: royalblue;
+}
+
+.fel_event{
+	padding-bottom: 12px;
+    padding-top: 12px;
+}
+
+.fel_event ul{
+	 list-style: none;
+    display: flex;
+    padding-right: 40px;
+    padding-left: 40px;
+}
+
+.fel_event ul li{
+	margin-left:9px;
+}
+
+.fel_event img{
+	 height:100px;
+	 width:100px;
+	 border-radius:5px;
+}
+
+.fel_event ul li ul{
+	 list-style: none;
+	 display: block;
+	  font-size: 16px;
+	  padding-right: 0px;
+    padding-left: 40px;
+       width: 150px;
+}
+
+.fel_event ul li ul li {
+	 margin-left:0px;
+	 margin-top:8px;
+}
+
+.fel_event ul li  div{
+	 font-size: large;
+}
+
+.fel_menu label{
+	font-size: larger;
+    margin-left: 16px;
+}
+
+
+
+
+
+
+

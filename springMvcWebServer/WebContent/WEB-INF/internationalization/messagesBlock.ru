@@ -1,0 +1,14 @@
+correctLabel=Редактировать
+deleteLabel=Удалить
+messageChanged=Изменено
+messageDone=Готово
+messagesByRating=По рейтингу
+messagesByDate=По дате
+messagesAllString=Всего сообщений
+messagesNewString=Новых
+loadMoreMessages=Ещё
+upLabel=Вверх
+downLabel=Вниз
+replyLabel=Ответить
+leaveaMessageInside=Оставить сообщение
+messagesDeleted=Это сообщение было удалено

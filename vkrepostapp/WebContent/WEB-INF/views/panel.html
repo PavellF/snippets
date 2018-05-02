@@ -1,0 +1,251 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8" />
+    <title>command panel</title>
+    <link rel="stylesheet" type="text/css" href="${pathToStyle}" />
+    <link rel="stylesheet" type="text/css" href="/bootstrap-dist/css/bootstrap.css" />
+    <script src="/jquery"></script>
+    <script type="text/javascript">
+    	
+    	
+    	var wslog;
+    	
+    	function init() {
+            
+    		$.get("/getjsonarray", function(data, status){
+    			
+    			
+    			
+    			if(data == "" || data == null){
+        			$(".active").append("<br/><span id='emptymessage'>Таких нет.</span>");
+        		}else{
+        			
+        			for(var i = 0;i<data.length;i++){
+        			
+        				
+        				function parseFilterVal(){
+        					if(data[i].filter == true)
+        						return "Да";
+        					else return "Нет";
+        				}
+        				
+        				function parsePhotoSizeValue(){
+        					switch(data[i].photoSize){
+        					case "PHOTO_1280":return "1280";
+        					case "PHOTO_807":return "807";
+        					case "PHOTO_604":return "604";
+        					case "PHOTO_130":return "130";
+        					case "PHOTO_75":return "75";
+        					}
+        				}
+        				
+        				function parseSavedPhotoDestination(){
+        					if(data[i].savedPhotoDestination == "")
+        						return "Нет";
+        					else return data[i].savedPhotoDestination;
+        				}
+        				
+        				function parseActiveButton(){
+        					if(data[i].active == true) return "Активно";
+        					else return "Приостановленно";
+        				}
+        			
+        			$(".active").append(
+        					"<p id='active'><b>ID</b>:"+data[i].id+
+        							" <b>token</b>:"+data[i].access_token+
+        							" <b>group id</b>:"+data[i].group_id+
+        							" <b>user id</b>:"+data[i].user_id+
+        							" <b>задержка</b>:"+data[i].delay+
+        							" <b>кол-во постов</b>:"+data[i].countOfPosts+
+        							" <b>задержка между ит.</b>"+data[i].globalDelay+
+        							" <b>размер фото</b>:"+parsePhotoSizeValue()+
+        							" <b>фильтр</b>:"+parseFilterVal()+
+        							" <b>сохранять фото</b>:"+parseSavedPhotoDestination()+
+        							" <b>источники</b>:"+data[i].groupsFrom.toString()+
+        							" <a href='/changestatus?id="+data[i].id+"'>"+parseActiveButton()+"</a>"+
+        							" <a href='/changeprefs?id="+data[i].id+"'>Изменить</a>"+
+        							" <a href='/doDelete?id="+data[i].id+"'>Удалить</a></p>");
+        			
+        			}
+        		}
+    			
+    		});
+    		
+    	
+
+    		wslog = new WebSocket("ws://localhost:8080/log");
+            wslog.onopen = function (event) {}
+            wslog.onmessage = function (event) {
+            	console.log(event.data);
+            	var $textarea = document.getElementById("log");
+            	$textarea.value = $textarea.value + event.data+"\n";
+            	}
+            wslog.onclose = function (event) {}
+        };
+    
+        function check(){
+            var hasErrors = false;
+
+            var access_token = document.forms["postForm"]["access_token"].value;
+            if (access_token == null || access_token == "" || access_token.match(" ")) {
+                hasErrors = true;
+                $(".access_token").append("<br/><span id='errormessage'>Это поле должно быть заполнено и не иметь пробелов.</span>");
+            }
+            var group_id = document.forms["postForm"]["group_id"].value;
+            if(group_id == null || group_id == "" || group_id.match(" ")){
+                hasErrors = true;
+                $(".group_id").append("<br/><span id='errormessage'>Это поле должно быть заполнено и не иметь пробелов.</span>");
+            }
+            var user_id = document.forms["postForm"]["user_id"].value;
+            if(user_id == null || user_id == "" || user_id.match(" ")){
+                hasErrors = true;
+                $(".user_id").append("<br/><span id='errormessage'>Это поле должно быть заполнено и не иметь пробелов.</span>");
+            }
+            var delay = +document.forms["postForm"]["delay"].value;
+            if (delay == null || delay == Number.NaN || !Number.isInteger(delay) || delay <= 0) {
+                hasErrors = true;
+                $(".delay").append("<br/><span id='errormessage'>Это поле должно содержать целое число больше 0 и не иметь пробелов.</span>");
+            }
+            var countOfPosts = +document.forms["postForm"]["countOfPosts"].value;
+            if (countOfPosts == null || countOfPosts == Number.NaN || !Number.isInteger(countOfPosts) || countOfPosts <= 0) {
+                hasErrors = true;
+                $(".countOfPosts").append("<br/><span id='errormessage'>Это поле должно содержать целое число больше 0 и не иметь пробелов.</span>");
+            }
+            var globalDelay = +document.forms["postForm"]["globalDelay"].value;
+            var minGlobalDelay = countOfPosts*delay; 
+            if (globalDelay == null || globalDelay == Number.NaN || !Number.isInteger(globalDelay) || globalDelay <= 0) {
+                hasErrors = true;
+                $(".globalDelay").append("<br/><span id='errormessage'>Это поле должно содержать целое число больше 0 и не иметь пробелов.</span>");
+            }else if(globalDelay < minGlobalDelay){
+                hasErrors = true;
+                $(".globalDelay").append("<br/><span id='errormessage'>Слишком малое значение. Минимум "+minGlobalDelay+".</span>");
+            }
+            var groupsFrom = document.forms["postForm"]["groupsFrom"].value;
+            if (groupsFrom == null || groupsFrom == "" || !checkGroupsIds(groupsFrom)) {
+                hasErrors = true;
+                $(".groupsFrom").append("<br/><span id='errormessage'>Значения указаны неверно или не указаны вовсе.</span>");
+        	}
+            var filter =  document.getElementById("filter").checked;
+            
+            if(filter){
+            	document.getElementById("filter").value = "on";
+            }else {
+            	document.getElementById("filter").value = "off";
+            }
+        
+            if (hasErrors) return false;
+            
+         }
+
+            function checkGroupsIds(id){
+                var array =  id.split("@");
+                var correct = true;
+                for(var i = 0;i<array.length;i++){
+                	if(+array[i]>0 || +array[i] == null ||+array[i] == undefined) correct = false;
+                }
+                return correct;
+            }
+    </script>
+</head>
+<body onload="init();">
+ 
+ 	
+	
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-md-8">
+                <h1 class="active">Активные итерации</h1><br/>
+            </div>
+            <div class="col-md-2">
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    
+                </div>
+                <div class="col-md-8">
+                    <form action="/" method=POST name="postForm" onsubmit="return check();">
+
+                        <h1>Новая итерация</h1>
+                        
+                        <h3 class="access_token"><a href="/help">access token</a></h3>
+                        <input type="text" name="access_token" />
+
+                        <h3 class="group_id">id группы для постинга</h3>
+                        <input type="text" name="group_id" />
+
+                        <h3 class="user_id">id владельца группы</h3>
+                        <input type="text" name="user_id" />
+
+                        <h3 class="delay">Задержка между постингом в миллисекундах</h3>
+                        <input type="text" name="delay" />
+
+                        <h3 class="countOfPosts">Количество постов за итерацию с каждой группы</h3>
+                        <input type="text" name="countOfPosts" />
+
+                        <h3 class="globalDelay">Задержка между итерациями</h3>
+                        <input type="text" name="globalDelay" />
+
+                        <h3>Размер фото</h3>
+                        <select selected="1280" required name="photo_size">
+                            <option>1280</option>
+                            <option>807</option>
+                            <option>604</option>
+                            <option>130</option>
+                            <option>75</option>
+                        </select>
+
+                        <h3 class="filter">Использовать фильтр <input id="filter" name="filter" type="checkbox" id="filter"/></h3>
+
+                        <h3 class="savedPhotoDestination">Расположение для сохранённых фото<br />(оствить пустым, если не нужно)</h3>
+                        <input type="text" name="savedPhotoDestination" />
+
+                        <h3 class="groupsFrom"><a href="/help">id групп источников</a></h3>
+                        <textarea name="groupsFrom"></textarea><br/>
+
+                        <input class="submit" type="submit" value="Попытать счастья"  id="button"/>
+                        </form>
+</div>
+                <div class="col-md-2">
+                    
+                </div>
+            </div>
+        </div>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <h1>Лог</h1>
+                <textarea name="log" readonly="readonly" id="log"></textarea>
+            
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+    
+    
+    <div class="container">
+    <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8" id="footer">
+                <a href="/?pathToStyle=/style.css?background='/wall240158'" >котик</a> 
+                <a href="/?pathToStyle=/style.css?background='/wall226195'">грустненько</a>
+                <a href="/?pathToStyle=/style.css?background='/wall98620'">тёмненько</a>
+                <a href="/?pathToStyle=/style.css?background='/wall203199'">ещё котик</a>
+                <a href="/?pathToStyle=/style.css?background='/wall161984'">много котиков</a>
+                <a href="/help">help</a>                    
+                </div>
+                <div class="col-md-2"></div>
+    </div>
+    </div>
+</body>
+</html>

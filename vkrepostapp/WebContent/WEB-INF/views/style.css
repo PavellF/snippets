@@ -1,0 +1,83 @@
+
+body	
+{
+        position: center;
+        background: url(${backgroundURL});
+        background-size: cover;
+	
+}
+
+#emptymessage {
+	font-size:25px;
+}
+
+#active {
+	font-size:12px;
+}
+
+.col-md-2 {
+
+    
+}
+
+.col-md-8 {
+    background-color:white;
+    opacity: 0.7;
+}
+
+.container {
+    
+
+}
+
+.container textarea{
+	height: 256px;
+	width:95%;
+}
+
+.container input{
+	height: 32px;
+	width:400px;
+	border-radius: 2px; 
+	border: 1px  solid ;
+}
+
+.container select{
+	height: 32px;
+	width:200px;
+	border-radius: 2px; 
+	border: 1px  solid ;
+}
+
+#errormessage {
+	font-size:16px;
+	color: red;
+}
+
+.container a:hover{
+	 text-decoration:none;
+	 color: black;
+}
+
+
+#footer{
+	height: 66px;
+}
+
+#button{
+	height: 50px;
+	width:150px;
+	border-radius: 2px; 
+	border: 1px  solid ;
+}
+
+#filter{
+	height: 16px;
+	width:16px;
+	border-radius: 2px; 
+	border: 1px  solid ;
+	
+}
+
+
+

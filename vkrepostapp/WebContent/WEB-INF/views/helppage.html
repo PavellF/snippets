@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8" />
+    <title>Help!</title>
+    <link rel="stylesheet" type="text/css" href="${pathToStyle}" />
+    <link rel="stylesheet" type="text/css" href="/bootstrap-dist/css/bootstrap.css" />
+    
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-md-8">
+                <h1>Получение access token.</h1>
+                <p>Актуально на момент 23.09.16</p>
+                <p>1. Зарегестрированный с телефоном аккаунт.</p>
+                <p>2. Созданный standalone application.</p>
+                <p>3. В браузере пройти по ссылке следующего вида(при этом быть залогиненым):</p>
+                <b>https://oauth.vk.com/authorize?client_id=[ID приложения]&response_type=token&v=5.53
+                &scope=offline,groups,wall,photos&redirect_uri=https://api.vk.com/blank.html</b>
+                <p>scope установленный на offline озачает что будет выдан практически бессрочный token.</p>
+                <p>4. Ответом будет выдан access token.</p>
+                <p><a href="https://vk.com/dev/implicit_flow_user">Подробнее</a></p>
+            </div>
+            <div class="col-md-2">
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    
+                </div>
+                <div class="col-md-8">
+                    
+
+                        <h1>Поля</h1>
+                        
+                        <h3>access token</h3>
+                        <p>Здесь должен быть access token полученный от vk.com (см. выше)</p>
+                        
+                        <h3>id группы для постинга</h3>
+                        <p>id группы куда будет происходить перепостинг, держатель access token-а должен иметь нужные права.</p>
+                        
+                        <h3>id владельца группы</h3>
+                        <p>см. документацию vk.com чтобы узнать как извлекать id групп.</p>
+                        
+                        <h3>Задержка между постингом в миллисекундах</h3>
+                        <p>1 минута это 60000млс. Для правильной работы не стоит ставить слишком малые значения.</p>
+                        
+                        <h3>Количество постов за итерацию с каждой группы</h3>
+                        <p>Количество последних постов. Из-за ограничений со стороны vk.com не имеет смысла ставить 
+                        слишком большие значения. Если включен фильтр или данная группа не содержит постов с картинками 
+                        может ничего не произойти. Следи за логами.</p>
+                        
+                        <h3>Задержка между итерациями</h3>
+                        <p>Значение желательно должно быть больше в несколько раз
+                         чем задержка между постингом. Указывать в миллисекундах.</p>
+                         
+                        <h3>Не использовать фильтр </h3>
+                        <p>Когда этот праметр активен могут пройти посты содержащие не только единственную картинку.</p>
+                        
+                        <h3>Расположение для сохранённых фото</h3>
+                        <p>Имена файлов генерируются автоматически. Путь указывать до уровня каталога.</p>
+                        
+                        <h3>id групп источников</h3>
+                        <p>В следующем формате, сначала идёт знак минуса:</p>
+                        <b>-6677876</b><br/>
+                        <b>@</b><br/>
+                        <b>-7868683</b><br/>
+                        <b>@</b><br/>
+                        <b>-1238756</b><br/>
+                        <b>...</b><br/>
+
+                        
+</div>
+                <div class="col-md-2">
+                    
+                </div>
+            </div>
+        </div>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+            	<h1><a href="/">назад</a></h1><br/>    
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+    
+    
+    <div class="container">
+    <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8" id="footer">
+                <a href="/help?pathToStyle=/style.css?background='/wall240158'" >котик</a> 
+                <a href="/help?pathToStyle=/style.css?background='/wall226195'">грустненько</a>
+                <a href="/help?pathToStyle=/style.css?background='/wall98620'">тёмненько</a>
+                <a href="/help?pathToStyle=/style.css?background='/wall203199'">ещё котик</a>
+                <a href="/help?pathToStyle=/style.css?background='/wall161984'">много котиков</a>
+                </div>
+                <div class="col-md-2"></div>
+    </div>
+    </div>
+</body>
+</html>
