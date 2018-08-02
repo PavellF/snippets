@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Demo</title>
+   <script>
+     window.onload = function () {
+       const fetchTopIn = document.querySelector('.fetchTopIn');
+       const fetchForLastTimeIn = document.querySelector('.fetchForLastTimeIn');
+       const content = document.querySelector('.content');
+       const apiUrl = document.querySelector('.apiUrl');
+       const undoneShowAll = document.querySelector('.undoneShowAll');
+       const lastShowAll = document.querySelector('.lastShowAll');
+
+       document.querySelector('.fetchTopBtn').onclick = function () {
+    	    clearTable();
+    	    const n = fetchTopIn.value;
+    	    
+    	    if (n > 0) {
+    	    	  getEvents(`${apiUrl.value}events/top/${n}`, (events) => {
+    	    		  if (events.length > 0) {
+                   generateTable(events);
+              } else {
+                  content.innerHTML = "No content found";
+              }
+    	    	  });
+    	    }
+       }
+
+       document.querySelector('.fetchUndoneBtn').onclick = function () {
+	    	   clearTable();
+	    	   getEvents(`${apiUrl.value}events/undone`, (events) => {
+                   if (events.length > 0) {
+                	   
+                	    if (undoneShowAll.checked == true) {
+                	     	generateTable(events);
+                	    } else {
+                	    	   	generateTable(events.map(val => {
+                            return {ssoid: val.ssoid}
+                         }));
+                	    }
+                       
+                  } else {
+                      content.innerHTML = "No content found";
+                  }
+              });
+       }
+
+       document.querySelector('.fetchForLastTimeBtn').onclick = function () {
+    	       clearTable();
+           getEvents(`${apiUrl.value}events/last?forMinutes=${fetchForLastTimeIn.value}`, (events) => {
+        	       if (events === undefined || events === null || events.length < 1) {
+        	    	      content.innerHTML = "No content found";
+        	       }
+        	   
+        	       if (lastShowAll.checked == true) {
+                   generateTable(events);
+               } else {
+                   generateTable(events.map(val => {
+                   return {ssoid: val.ssoid, formid: val.formid}
+                }));
+               }
+           })
+       }
+       
+       function getEvents(url, callback) {
+	    	   const xhr = new XMLHttpRequest();
+	    	   
+	    	   xhr.open('GET', url, true);
+	    	   xhr.setRequestHeader('Accept', 'application/vnd.test.event+json;charset=UTF-8;version=1.0');
+	    	   xhr.send();
+	    	   
+	    	   var timeout = 10000;
+	       var timer = window.setTimeout(function () { 
+		    	   xhr.abort(); 
+		    	   console.log("request is aborted");
+	    	   },timeout);
+	    	   
+	    	   xhr.onreadystatechange = function () {
+	    		   
+                   if (xhr.readyState == 4 && xhr.status == 200) {
+                	   
+                       window.clearTimeout(timer);
+                       var events = JSON.parse(xhr.responseText);
+                       callback(events);
+                      
+                   } else if (xhr.readyState == 4 && !xhr.status == 200){
+                       console.log("request was not OK(200)");
+                   }
+               }
+       }
+       
+       function clearTable() {
+    	      content.innerHTML = "";
+       }
+
+       //generates html table based on passed json
+       function generateTable(map) {
+         var _table_ = document.createElement('table'),
+           _tr_ = document.createElement('tr'),
+           _th_ = document.createElement('th'),
+           _td_ = document.createElement('td');
+
+         // Builds the HTML Table.
+         function buildHtmlTable(arr) {
+           var table = _table_.cloneNode(false),
+             columns = addAllColumnHeaders(arr, table);
+           for (var i=0, maxi=arr.length; i < maxi; ++i) {
+             var tr = _tr_.cloneNode(false);
+             for (var j=0, maxj=columns.length; j < maxj ; ++j) {
+               var td = _td_.cloneNode(false);
+               cellValue = arr[i][columns[j]];
+               td.appendChild(document.createTextNode(arr[i][columns[j]] || ''));
+               tr.appendChild(td);
+             }
+             table.appendChild(tr);
+           }
+           return table;
+         }
+
+         // Adds a header row to the table and returns the set of columns.
+         // Need to do union of keys from all records as some records may not contain
+         // all records
+         function addAllColumnHeaders(arr, table) {
+           var columnSet = [],
+             tr = _tr_.cloneNode(false);
+           for (var i=0, l=arr.length; i < l; i++) {
+             for (var key in arr[i]) {
+               if (arr[i].hasOwnProperty(key) && columnSet.indexOf(key)===-1) {
+                 columnSet.push(key);
+                 var th = _th_.cloneNode(false);
+                 th.appendChild(document.createTextNode(key));
+                 tr.appendChild(th);
+               }
+             }
+           }
+           table.appendChild(tr);
+           return columnSet;
+         }
+
+
+         content.appendChild(buildHtmlTable(map));
+       }
+     }
+   </script>
+ <style>
+   body {
+     font-size: 16px;
+   }
+   button {
+     height: 24px;
+     margin-top: 9px;
+     margin-bottom: 9px;
+   }
+   input {
+     font-size: 24px;
+   }
+   table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    }
+
+	td, th {
+	    border: 1px solid #dddddd;
+	    text-align: left;
+	    padding: 8px;
+	}
+	
+	tr:nth-child(even) {
+	    background-color: #dddddd;
+	}
+ </style>
+</head>
+<body>
+<label>Base URL: <input type="text" class="apiUrl" value = 'http://localhost:8080/'></label> 
+<div>
+ <b>Составить ТОП самых используемых форм.</b><br>
+ <button class="fetchTopBtn">Request</button><br>
+ Топ <input type="number" value="5" class="fetchTopIn">
+<hr>
+ <b>Вывести список пользователей, которые начали активность на форме и не дошли до конца</b><br>
+ <button class="fetchUndoneBtn">Request</button>
+ <br>
+ <input type="checkbox" class="undoneShowAll"> Выводить все
+<hr>
+ <b>Вывести список пользователей и используемых ими форм за последнии N минут</b><br>
+ <button class="fetchForLastTimeBtn">Request</button><br>
+ <input type="number" class="fetchForLastTimeIn" value=60> минут.
+ <label>В году 525600 минут, в месяце 43800, 1 сутки это 1440 минут</label>
+ <br>
+ <input type="checkbox" class="lastShowAll"> Выводить все
+<hr>
+</div>
+
+<div class = "content"></div>
+</body>
+</html>
