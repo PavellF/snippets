@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.RequestScope;
 
+import com.serious.business.domain.Role;
 import com.serious.business.repository.UserRepository;
 import com.serious.business.repository.domain.User;
 
@@ -19,11 +20,11 @@ import com.serious.business.repository.domain.User;
  * */
 @Component
 @RequestScope
-//@Lazy(true)
+@Lazy(true)
 public class CurrentUser implements SecurityContext {
 
 	private final Optional<String> username;
-	private final Optional<String> role;
+	private final Optional<Role> role;
 	private final Optional<String> id;
 	
 	private Optional<User> fetchUser(HttpServletRequest request,
@@ -65,8 +66,8 @@ public class CurrentUser implements SecurityContext {
 		this.id = Optional.ofNullable(id != null ? id.toString() : null);
 	}
 
-	public boolean isAnonymous() {
-		return !username.isPresent() || !id.isPresent();
+	public boolean isAuthorized() {
+		return username.isPresent() || id.isPresent();
 	}
 
 	
@@ -74,7 +75,7 @@ public class CurrentUser implements SecurityContext {
 		return username;
 	}
 
-	public boolean hasRole(final String toCompare) {
+	public boolean hasRole(final Role toCompare) {
 		return role.map(role -> role.equals(toCompare))
 				.orElseGet(() -> Boolean.FALSE);
 	}

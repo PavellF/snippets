@@ -12,62 +12,38 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import com.serious.business.domain.Role;
+import com.serious.business.domain.MessageStatus;
 
 @Entity
-@Table(name="user")
-public class User {
+@Table(name="chat_message")
+public class ChatMessage {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Integer id;
 	
-	@Column(name="email")
+	@Column(name="author")
 	@NotNull
-	@javax.validation.constraints.Email
-	private String email;
+	private Integer authorId;
 	
-	@Column(name="password")
+	@Column(name="chat_id")
 	@NotNull
-	@Size(min = 6, max = 36)
-	private char[] password;
-	
-	@Column(name="role")
-	@NotNull
-	@Enumerated(javax.persistence.EnumType.STRING)
-	private Role role;
+	private Integer chatId;
 	
 	@Column(name="date")
 	@NotNull
 	private Instant date;
 	
-	public transient static final User EMPTY = new User();
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public char[] getPassword() {
-		return password;
-	}
-
-	public void setPassword(char[] password) {
-		this.password = password;
-	}
-
+	@Column(name="message")
+	@NotNull
+	@Size(min = 1, max = 16384)
+	private String message;
+	
+	@Column(name="status")
+	@NotNull
+	@Enumerated(javax.persistence.EnumType.STRING)
+	private MessageStatus role;
 	
 	/**
 	 * Does NOT trigger lazy loading. Always returns empty string.
@@ -94,12 +70,28 @@ public class User {
 		throw new UnsupportedOperationException();
 	}
 
-	public Role getRole() {
-		return role;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setRole(Role role) {
-		this.role = role;
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public Integer getAuthorId() {
+		return authorId;
+	}
+
+	public void setAuthorId(Integer authorId) {
+		this.authorId = authorId;
+	}
+
+	public Integer getChatId() {
+		return chatId;
+	}
+
+	public void setChatId(Integer chatId) {
+		this.chatId = chatId;
 	}
 
 	public Instant getDate() {
@@ -109,5 +101,23 @@ public class User {
 	public void setDate(Instant date) {
 		this.date = date;
 	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+	public MessageStatus getRole() {
+		return role;
+	}
+
+	public void setRole(MessageStatus role) {
+		this.role = role;
+	}
+	
+	
 	
 }
