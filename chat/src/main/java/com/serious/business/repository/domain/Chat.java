@@ -18,6 +18,14 @@ public class Chat {
 	@Column(name = "id")
 	private Integer id;
 	
+	@Column(name = "opener")
+	@NotNull
+	private Integer openerId;
+	
+	@Column(name = "chat_with")
+	@NotNull
+	private Integer chatWithId;
+	
 	@Column(name="title")
 	@NotNull
 	@Size(min = 1, max = 36)
@@ -62,6 +70,22 @@ public class Chat {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public Integer getOpenerId() {
+		return openerId;
+	}
+
+	public void setOpenerId(Integer openerId) {
+		this.openerId = openerId;
+	}
+
+	public Integer getChatWithId() {
+		return chatWithId;
+	}
+
+	public void setChatWithId(Integer chatWithId) {
+		this.chatWithId = chatWithId;
 	}
 	
 	

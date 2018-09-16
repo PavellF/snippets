@@ -5,10 +5,7 @@ CREATE TABLE "user" (
 	"role" varchar(36) NOT NULL,
 	"date" TIMESTAMP NOT NULL,
 	CONSTRAINT user_pk PRIMARY KEY ("id")
-) WITH (
-  OIDS=FALSE
 );
-
 
 
 CREATE TABLE "chat_message" (
@@ -19,10 +16,7 @@ CREATE TABLE "chat_message" (
 	"message" varchar(16384) NOT NULL,
 	"status" varchar(64) NOT NULL,
 	CONSTRAINT chat_message_pk PRIMARY KEY ("id")
-) WITH (
-  OIDS=FALSE
 );
-
 
 
 CREATE TABLE "chat" (
@@ -31,11 +25,7 @@ CREATE TABLE "chat" (
 	"chat_with" integer NOT NULL,
 	"title" varchar(36) NOT NULL,
 	CONSTRAINT chat_pk PRIMARY KEY ("id")
-) WITH (
-  OIDS=FALSE
 );
-
-
 
 
 ALTER TABLE "chat_message" ADD CONSTRAINT "chat_message_fk0" FOREIGN KEY ("author") REFERENCES "user"("id");

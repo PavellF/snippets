@@ -76,10 +76,12 @@ public class CurrentUser implements SecurityContext {
 	}
 
 	public boolean hasRole(final Role toCompare) {
-		return role.map(role -> role.equals(toCompare))
-				.orElseGet(() -> Boolean.FALSE);
+		return role.map(role -> role.equals(toCompare)).orElse(Boolean.FALSE);
 	}
 
+	public boolean isSuper() {
+		return hasRole(Role.SUPERUSER);
+	}
 	
 	public Optional<String> getId() {
 		return id;

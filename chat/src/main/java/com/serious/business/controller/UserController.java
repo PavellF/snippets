@@ -79,9 +79,7 @@ public class UserController {
 		return ResponseEntity.notFound().build();
 	}
 	
-	@PutMapping(path = "/user", 
-			produces = { MediaType.APPLICATION_JSON_VALUE },
-			consumes = { MediaType.APPLICATION_JSON_VALUE })
+	@PutMapping(path = "/user", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> updateUser(HttpEntity<UserDTO> entity) {
 		
 		UserDTO user = entity.getBody();
@@ -119,10 +117,8 @@ public class UserController {
 		return ResponseEntity.badRequest().build();
 	}
 	
-	@PostMapping(path = "/user", 
-			produces = { MediaType.APPLICATION_JSON_VALUE },
-			consumes = { MediaType.APPLICATION_JSON_VALUE })
-	public ResponseEntity<UserDTO> createUser(UserDTO user) {
+	@PostMapping(path = "/user", consumes = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<?> createUser(UserDTO user) {
 		
 		if (user == null) {
 			return ResponseEntity.badRequest().build();

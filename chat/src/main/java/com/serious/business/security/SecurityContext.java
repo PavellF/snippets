@@ -27,6 +27,11 @@ public interface SecurityContext {
 	boolean hasRole(final Role toCompare);
 	
 	/**
+	 * Whether this user is super user.
+	 * */
+	boolean isSuper();
+	
+	/**
 	 * If user is anonymous always empty.
 	 * */
 	Optional<String> getId();
